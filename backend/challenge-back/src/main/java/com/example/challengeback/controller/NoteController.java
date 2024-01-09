@@ -96,21 +96,25 @@ public class NoteController {
 
     @PutMapping("/update")
     public ResponseEntity<?>update(@RequestBody NoteDto notedDto){
-        // Retrieve the category associated with the provided title in the DTO.
-        Category categoryNote = categoryService.findByTitle(notedDto.getCategory());
-         // Build a Note object using data from the DTO and the found category.
-         Note noteToUpdate = Note.builder()
-            .title(notedDto.getTitle())
-            .note_id(notedDto.getNote_id())
-            .archived(notedDto.isArchived())
-            .category(categoryNote)
-            .content(notedDto.getContent())
-            .createdAt(notedDto.getCreatedAt())
-            .build();
-        // Save the updated note in the database.
-        noteService.save(noteToUpdate);
-        // Return a successful response.
-        return ResponseEntity.ok("Save success");
+        // if note is not empty
+        if(!noteService.findById(notedDto.getNote_id()).isEmpty()){
+            // Retrieve the category associated with the provided title in the DTO.
+            Category categoryNote = categoryService.findByTitle(notedDto.getCategory());
+            // Build a Note object using data from the DTO and the found category.
+            Note noteToUpdate = Note.builder()
+                .title(notedDto.getTitle())
+                .note_id(notedDto.getNote_id())
+                .archived(notedDto.isArchived())
+                .category(categoryNote)
+                .content(notedDto.getContent())
+                .createdAt(notedDto.getCreatedAt())
+                .build();
+            // Save the updated note in the database.
+            noteService.save(noteToUpdate);
+            // Return a successful response.
+            return ResponseEntity.ok("Save success");
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/delete/{note_id}")

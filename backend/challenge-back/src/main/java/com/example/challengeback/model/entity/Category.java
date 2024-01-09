@@ -32,7 +32,8 @@ public class Category {
     @Column(name = "title", nullable = false)
     private String title; // Title or name of the category.
     @JsonIgnore
-    @OneToMany(mappedBy = "category" ,cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    //If you delete a category, all the notes related to it are also deleted.
+    @OneToMany(mappedBy = "category" ,cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Note> notes; // Notes associated with this category.
 
 }

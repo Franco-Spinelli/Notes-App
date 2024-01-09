@@ -1,6 +1,7 @@
 package com.example.challengeback.service.category;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,6 +32,11 @@ public class CategoryImpl implements CategoryService{
     @Override
     public Category findByTitle(String title) {
       return categoryRepository.findByTitle(title);
+    }
+
+    @Override
+    public Optional<Category> findById(Integer id) {
+      return categoryRepository.findById(id);
     }
     
 }
