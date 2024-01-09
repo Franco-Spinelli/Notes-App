@@ -1,6 +1,9 @@
 package com.example.challengeback.model.entity;
 
 import java.sql.Date;
+
+//import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +15,14 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
 @Builder
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "notes")
 public class Note {
     @Id
@@ -38,6 +43,7 @@ public class Note {
     
     // one note only have one category
     @ManyToOne
+   // @JsonIgnore
     @JoinColumn(name = "category_id")
     private Category category; // Category associated with the note.
 }

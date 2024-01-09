@@ -8,7 +8,12 @@ import com.example.challengeback.model.entity.Category;
 
 @Service
 public interface CategoryService {
-    List<Category> findAll();
-    void save (Category category);
-    void delete(Integer category_id);
+      // Retrieve all categories
+      List<Category> findAll();
+      // Save a category
+      void save(Category category);
+      // Delete a category by its ID
+      void delete(Integer category_id);
+      // Find a category by its title
+      Category findByTitle(String title);
 }
