@@ -61,6 +61,13 @@
     flex-wrap: wrap;
     gap: 10px; 
 }
+button {
+    color: white;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+  }
    .subscribe {
     position: relative;
     height: 140px;
@@ -81,7 +88,7 @@
     height: 0;
     border-left: 0px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #1a044e;
+    border-bottom: 10px solid #f9057f;
   }
   
   .subscribe p {
@@ -105,7 +112,7 @@
   
   .subscribe input:focus {
     outline: none;
-    border-bottom: 1px solid #0d095e;
+    border-bottom: 1px solid #f9057f;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
   }
   
@@ -114,7 +121,7 @@
     border-radius: 30px;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    background-color: #0f0092;
+    background-color: #f9057f;
     color: #FFF;
     padding: 12px 25px;
     display: inline-block;
@@ -129,9 +136,15 @@
   }
   
   .subscribe .submit-btn:hover {
-    background-color: #07013d;
-    box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
+    background-color: #ec5fa6;
   }
-  button{
-    text-decoration: none;
+  .title{
+    color:#f9057f ;
+    text-align: center;
   }
+  .form-container{
+    margin-left: 43.3%;
+    margin-top: 3rem;
+   
+  }
+  

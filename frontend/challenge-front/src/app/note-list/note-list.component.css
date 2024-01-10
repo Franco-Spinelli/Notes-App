@@ -115,3 +115,20 @@
   .cssbuttons-io-button:active {
     box-shadow: 0 0.3em 1em -0.5em #14a73e98;
   }
+  input.minimalist-input {
+    border: 1px solid rgb(174, 167, 167);
+    height: 55px;
+    padding: 0 2rem;
+    width: 30%;
+    font-size: 18px;
+    outline: none;
+    border-radius: 100px;
+  }
+  .search{
+    margin-top: 3rem;
+    text-align: center;
+  }
+  .title{
+    color:#f9057f ;
+    text-align: center;
+  }

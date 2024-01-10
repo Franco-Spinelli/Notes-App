@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { Category } from '../model';
+import { Category, Note } from '../model';
 import { ApiServiceService } from '../service/api-service.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormControl, FormGroup, FormsModule,  ReactiveFormsModule  } from '@angular/forms';
+import {MatDividerModule} from '@angular/material/divider';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [CommonModule,FormsModule,ReactiveFormsModule],
+  imports: [CommonModule,FormsModule,ReactiveFormsModule, MatDividerModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css'
 })
@@ -56,9 +57,7 @@ ngOnInit() {
   }
   onSaveCategory(): void {
     console.log(this.categoryForm.value.title);
-this.newCategory.title=this.categoryForm.value.title;
-
-
+    this.newCategory.title=this.categoryForm.value.title;
     this.apiService.saveCategory(this.newCategory).subscribe(
       (response) => {
         console.log('Save successful:', response);

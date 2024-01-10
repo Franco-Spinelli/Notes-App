@@ -1,3 +1,6 @@
+<div class="title">
+    <h1 style="font-size: 2rem; margin-top: 1rem;">ALL CATEGORIES</h1>
+</div>
 <div class="container">
     <div class="card" *ngFor="let category of categories">
         <div class="card-details">
@@ -6,14 +9,15 @@
         <button (click)="onDeleteCategory(category.category_id)" class="card-button">Delete</button>
     </div>
 </div>
-
-<form [formGroup]="categoryForm"  (ngSubmit)="onSaveCategory()">
-<div class="subscribe">
-    <p>SUBSCRIBE</p>
-    <input placeholder="Name of the new category" class="subscribe-input" name="category" type="text" formControlName="title"required>
-    <br>
-    <div class="submit-btn">
-        <button type="submit">CREATE</button>    
+<div class="form-container">
+    <form [formGroup]="categoryForm"  (ngSubmit)="onSaveCategory()">
+    <div class="subscribe">
+        <p>CREATE CATEGORY</p>
+        <input placeholder="Name of the new category" class="subscribe-input" name="category" type="text" formControlName="title"required>
+        <br>
+        <div class="submit-btn">
+            <button type="submit">CREATE</button>    
+        </div>
     </div>
-  </div>
-</form>
+    </form>
+</div>
