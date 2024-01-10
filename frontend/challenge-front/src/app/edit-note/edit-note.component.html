@@ -1,0 +1,26 @@
+<form [formGroup]="updateNote" (ngSubmit)="update()">
+    <label for="title"> CATEGORY: </label>
+    <mat-radio-group aria-label="Select an option" (change)="onCategoryChange($event)">
+        <span *ngFor="let category of categories">
+          <mat-radio-button [value]="category.title">
+            <span style="color: black;">{{category.title}}</span>
+          </mat-radio-button>
+        </span>
+      </mat-radio-group>
+   <!-- <mat-form-field>
+        <mat-select >
+          @for (category of categories; track category) {
+            <mat-option [value]="category.title"  formControlName="category">{{category.title}}</mat-option>
+          }
+          
+        </mat-select>
+      </mat-form-field>
+  -->
+    <label for="title">TITLE:</label>
+    <input type="text" id="title" formControlName="title"required>
+  
+    <label for="content">CONTENT:</label>
+    <input type="text" id="content" formControlName="content"required>
+  
+    <button type="submit" >UPDATE</button>
+  </form>

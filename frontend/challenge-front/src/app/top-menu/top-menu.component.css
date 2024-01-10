@@ -1,0 +1,25 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a1919;
+  }
+  a {
+    text-decoration: none;
+  }
+  mat-icon {
+    color: #f9057f;
+  }
+  #logo {
+    position: relative;
+    margin-right: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  #player {
+    width: 2rem;
+    height: 2rem;
+    font-size: 2rem;
+  }
+
+ 

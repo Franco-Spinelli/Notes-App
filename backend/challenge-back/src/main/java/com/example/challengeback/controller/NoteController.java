@@ -3,6 +3,7 @@ package com.example.challengeback.controller;
 
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -42,7 +43,6 @@ public class NoteController {
                         note.getNote_id(),
                         note.getTitle(),
                         note.getContent(),
-                        note.getCreatedAt(),
                         note.isArchived(),
                         (note.getCategory() != null) ? note.getCategory().getTitle() : null
                 ))
@@ -50,6 +50,29 @@ public class NoteController {
         // Return the list of NoteDTOs in the response.
         return ResponseEntity.ok(allNoteDTOs);
     }
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<NoteDto> findById(@PathVariable Integer id) {
+        // Retrieve the note by ID from the service.
+        Optional<Note> noteOptional = noteService.findById(id);
+        Note note = noteOptional.get();
+        // Check if the note with the given ID exists.
+        if (note == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        // Convert the Note entity to a NoteDTO.
+        NoteDto noteDto = new NoteDto(
+                note.getNote_id(),
+                note.getTitle(),
+                note.getContent(),
+                note.isArchived(),
+                note.getCategory().getTitle()
+        );
+
+        // Return the NoteDTO in the response.
+        return ResponseEntity.ok(noteDto);
+    }
+
     @GetMapping("/findAllArchived")
     public ResponseEntity<List<NoteDto>> findAllArchived() {
         // Retrieve all archived notes from the service.
@@ -60,7 +83,6 @@ public class NoteController {
                         note.getNote_id(),
                         note.getTitle(),
                         note.getContent(),
-                        note.getCreatedAt(),
                         note.isArchived(),
                         (note.getCategory() != null) ? note.getCategory().getTitle() : null
                 ))
@@ -79,7 +101,6 @@ public class NoteController {
                         note.getNote_id(),
                         note.getTitle(),
                         note.getContent(),
-                        note.getCreatedAt(),
                         note.isArchived(),
                         (note.getCategory() != null) ? note.getCategory().getTitle() : null
                 ))
@@ -107,7 +128,6 @@ public class NoteController {
                 .archived(notedDto.isArchived())
                 .category(categoryNote)
                 .content(notedDto.getContent())
-                .createdAt(notedDto.getCreatedAt())
                 .build();
             // Save the updated note in the database.
             noteService.save(noteToUpdate);

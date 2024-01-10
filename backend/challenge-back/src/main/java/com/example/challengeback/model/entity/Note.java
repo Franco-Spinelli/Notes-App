@@ -1,6 +1,5 @@
 package com.example.challengeback.model.entity;
 
-import java.sql.Date;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -34,9 +33,6 @@ public class Note {
 
     @Column(name = "content", nullable = false)
     private String content; // Content or body of the note.
-
-    @Column(name = "created_at", nullable = false)
-    private Date createdAt; // Date and time when the note was created.
 
     @Column(name = "archived")
     private boolean archived; // Indicates whether the note is archived or active.

@@ -6,30 +6,21 @@ import {MatCardModule} from '@angular/material/card';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet, RouterModule, RouterLink } from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
 @Component({
   selector: 'app-note-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule,MatDividerModule,MatListModule],
+  imports: [CommonModule, MatCardModule,MatDividerModule,MatListModule,MatTabsModule,RouterOutlet,RouterModule, RouterLink],
   templateUrl: './note-list.component.html',
   styleUrl: './note-list.component.css'
 })
 export class NoteListComponent {
   notes:Note[] = [];
-  updateNote: FormGroup;
-  constructor(private apiService:ApiServiceService, private fb: FormBuilder, private router: Router){
-    this.updateNote = this.fb.group({
-      note_id: new FormControl(''),
-      title: new FormControl(''),
-      content: new FormControl(''),
-      createdAt: new FormControl(''),
-      archived: new FormControl(''),
-      category: new FormControl('')
-     });
+  constructor(private apiService:ApiServiceService){
   }
   ngOnInit() {
     this.loadNotes();
-    console.log('Ruta actual:', this.router.url)
    }
    loadNotes() {
     // Call the getNotes method from the ApiService to fetch notes.
@@ -56,5 +47,8 @@ export class NoteListComponent {
         console.error('Error changing status:', error);
       }
     );
+  }
+  setId(id: number){
+    this.apiService.setId(id);
   }
 }
