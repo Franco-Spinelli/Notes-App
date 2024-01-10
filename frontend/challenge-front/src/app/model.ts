@@ -1,5 +1,5 @@
 export class Note {
-    "id": number;
+    "note_id": number;
     "title": string;
     "content": string;
     "archived": boolean;

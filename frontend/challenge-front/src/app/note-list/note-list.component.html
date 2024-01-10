@@ -1,8 +1,24 @@
-<ul>
-    <li *ngFor="let note of notes">
-      <h2>{{ note.title }}</h2>
-      <p>{{ note.content }}</p>
-      <p>Category: {{ note.category }}</p>
-      <p>Created at: {{note.createdAt}}</p>
-    </li>
-  </ul>
+<div class="container">
+    <ul class="list-horizontal">
+        <li *ngFor="let note of notes">
+            <div class="card">
+                <div class="card2">
+                    <div class="content">
+                        <h1 style="color: grey;">{{note.category}}</h1>
+                        <h3 style="color: grey;" >{{note.createdAt}}</h3>
+                        <h2 style="color: white;">{{note.title}}</h2>
+                        <p>{{note.content}}</p>
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="footer">
+                        <button> Edit 
+                        </button>
+                        <button class="buttonUnarchive" *ngIf="note.archived" (click)="changeStatusNote(note)">Unarchive</button>
+                        <button *ngIf="!note.archived" (click)="changeStatusNote(note)">Archive</button>
+                        <button> Delete </button>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
