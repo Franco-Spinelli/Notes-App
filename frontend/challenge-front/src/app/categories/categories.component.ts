@@ -18,7 +18,7 @@ export class CategoriesComponent {
   categoryForm: FormGroup;
 constructor(private  apiService: ApiServiceService,  private fb: FormBuilder){
   this.categoryForm = this.fb.group({
-    title: new FormControl('')
+    title: new FormControl(null)
    });
 }
 
@@ -58,6 +58,9 @@ ngOnInit() {
   onSaveCategory(): void {
     console.log(this.categoryForm.value.title);
     this.newCategory.title=this.categoryForm.value.title;
+    if(this.categoryForm.value.title!=null){
+      console.log(this.newCategory);
+      
     this.apiService.saveCategory(this.newCategory).subscribe(
       (response) => {
         console.log('Save successful:', response);
@@ -68,6 +71,9 @@ ngOnInit() {
         // Handle the error according to your needs
       }
     );
+  }else{
+    alert("Complete all the form");
+  }
   }
 
 }
