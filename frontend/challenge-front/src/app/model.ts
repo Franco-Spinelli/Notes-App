@@ -6,6 +6,6 @@ export class Note {
     "category": string;
 }
 export class Category {
-    "id": number;
+    "category_id": number;
     "title": string;
 }

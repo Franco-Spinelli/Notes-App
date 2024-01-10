@@ -48,6 +48,23 @@ export class NoteListComponent {
       }
     );
   }
+
+  onDeleteNote(noteId: number): void {
+    // Call the deleteNote method from your ApiService
+    this.apiService.deleteNote(noteId).subscribe(
+      (response) => {
+        // Successful deletion
+        console.log('Successful deletion:', response);
+        // Perform additional actions if needed
+      },
+      (error) => {
+        // Error handling
+        console.error('Error deleting:', error);
+        // Handle the error according to your needs
+      }
+    );
+  }
+
   setId(id: number){
     this.apiService.setId(id);
   }

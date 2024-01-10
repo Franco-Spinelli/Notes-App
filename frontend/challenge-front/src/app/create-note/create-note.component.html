@@ -1,4 +1,4 @@
-<form [formGroup]="updateNote" (ngSubmit)="update()">
+<form [formGroup]="createNote"  (ngSubmit)="create()">
     <label for="title"> CATEGORY: </label>
     <mat-radio-group aria-label="Select an option" (change)="onCategoryChange($event)">
         <span *ngFor="let category of categories">
@@ -22,5 +22,5 @@
     <label for="content">CONTENT:</label>
     <input type="text" id="content" formControlName="content"required>
   
-    <button type="submit" >UPDATE</button>
+    <button type="submit" >CREATE</button>
   </form>

@@ -60,7 +60,7 @@ export class EditNoteComponent {
     this.note.title = this.updateNote.value.title;
     this.note.content = this.updateNote.value.content;
     this.note.category = this.newCategory;
-    this.apiService.changeStatusNote(this.note).subscribe(
+    this.apiService.updateNote(this.note).subscribe(
       () => {
         // Log a success message when the status is changed successfully.
         console.log('Status changed successfully');
@@ -75,6 +75,5 @@ export class EditNoteComponent {
 
   onCategoryChange(event: any) {
     this.newCategory = event.value;
-    console.log('Categoría seleccionada:', this.newCategory);
   }
 }

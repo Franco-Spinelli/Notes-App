@@ -30,16 +30,18 @@ label{
     font-size: 20px;
 }
 button[type="submit"] {
-    background-color: #f9057f;
+    background-color: #ad5389;
     color: #fff;
     border: none;
+    margin-left: 45%;
     padding: 1rem 2rem;
     border-radius: 4px;
     cursor: pointer;
 }
 
 button[type="submit"]:hover {
-    background-color: #f9057f;
+    transition: 1s;
+    background-color: #19ff5ac4;
 }
 
 @media (max-width: 868px){

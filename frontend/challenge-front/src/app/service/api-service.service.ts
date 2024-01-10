@@ -35,6 +35,9 @@ export class ApiServiceService {
     return this.http.put(url, updatedNote);
   }
  
+  saveNote(note: Note): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/note/save`, note);
+  }
   updateNote(bodyMapping: any): Observable<any> {
     // Construct the API URL for updating the note's status.
     const url = `${this.apiUrl}/note/update`;
@@ -44,6 +47,17 @@ export class ApiServiceService {
  
   findById(id: number): Observable<Note> {
     return this.http.get<Note>(`${this.apiUrl}/note/findById/${id}`);
+  }
+
+  deleteNote(noteId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/note/delete/${noteId}`);
+  }
+  deleteCategory(categoryId: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/category/delete/${categoryId}`);
+  }
+
+  saveCategory(category: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/category/save`, category);
   }
 
   setId(id: number) {

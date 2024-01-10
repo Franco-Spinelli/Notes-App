@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card" *ngFor="let category of categories">
+        <div class="card-details">
+            <p class="text-title">{{category.title}}</p>
+        </div>
+        <button (click)="onDeleteCategory(category.category_id)" class="card-button">Delete</button>
+    </div>
+</div>
+
+<form [formGroup]="categoryForm"  (ngSubmit)="onSaveCategory()">
+<div class="subscribe">
+    <p>SUBSCRIBE</p>
+    <input placeholder="Name of the new category" class="subscribe-input" name="category" type="text" formControlName="title"required>
+    <br>
+    <div class="submit-btn">
+        <button type="submit">CREATE</button>    
+    </div>
+  </div>
+</form>

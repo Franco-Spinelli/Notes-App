@@ -110,9 +110,20 @@ public class NoteController {
     }
 
     @PostMapping("/save")
-    public ResponseEntity<?>save(@RequestBody Note note){
-        noteService.save(note);
-        return ResponseEntity.ok("Save success");
+    public ResponseEntity<?>save(@RequestBody NoteDto notedDto){
+         Category categoryNote = categoryService.findByTitle(notedDto.getCategory());
+            // Build a Note object using data from the DTO and the found category.
+            Note noteToUpdate = Note.builder()
+                .title(notedDto.getTitle())
+                .note_id(notedDto.getNote_id())
+                .archived(notedDto.isArchived())
+                .category(categoryNote)
+                .content(notedDto.getContent())
+                .build();
+            // Save the new note in the database.
+            noteService.save(noteToUpdate);
+            // Return a successful response.
+            return ResponseEntity.ok("Save success");
     }
 
     @PutMapping("/update")

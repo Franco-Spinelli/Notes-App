@@ -9,17 +9,30 @@ mat-toolbar {
   mat-icon {
     color: #f9057f;
   }
-  #logo {
-    position: relative;
-    margin-right: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  #player {
-    width: 2rem;
-    height: 2rem;
-    font-size: 2rem;
-  }
 
- 
+ button {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #f9057f;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #f9057f;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #f9057f;
+}
+
+button:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #f9057f;
+}
+
+button:active {
+  transform: scale(0.9);
+}
