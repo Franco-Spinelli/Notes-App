@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor="let note of notes">
+      <h2>{{ note.title }}</h2>
+      <p>{{ note.content }}</p>
+      <p>Category: {{ note.category }}</p>
+      <p>Created at: {{note.createdAt}}</p>
+    </li>
+  </ul>
