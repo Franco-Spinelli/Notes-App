@@ -56,21 +56,33 @@ ngOnInit() {
     );
   }
   onSaveCategory(): void {
+    let categoryExist=false;
     console.log(this.categoryForm.value.title);
     this.newCategory.title=this.categoryForm.value.title;
     if(this.categoryForm.value.title!=null){
-      console.log(this.newCategory);
-      
-    this.apiService.saveCategory(this.newCategory).subscribe(
-      (response) => {
-        console.log('Save successful:', response);
-        // Perform additional actions if needed
-      },
-      (error) => {
-        console.error('Error saving:', error);
-        // Handle the error according to your needs
+       this.categories.forEach(element => {
+        let category = this.categoryForm.value.title.toLowerCase();
+        console.log(category);
+        if(element.title.toLowerCase().includes(category)){
+          categoryExist = true;
+        }
+       });
+       console.log(categoryExist);
+       
+      if(!categoryExist){ 
+        this.apiService.saveCategory(this.newCategory).subscribe(
+        (response) => {
+          console.log('Save successful:', response);
+          // Perform additional actions if needed
+        },
+        (error) => {
+          console.error('Error saving:', error);
+          // Handle the error according to your needs
+        }
+      );
+      }else{
+        alert("The category already exists");
       }
-    );
   }else{
     alert("Complete all the form");
   }
