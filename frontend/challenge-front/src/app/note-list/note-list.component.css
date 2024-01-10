@@ -10,9 +10,10 @@
     
   }
  .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  margin-left: 8rem;
+  flex-wrap: wrap;
+  gap: 10px; 
  }
   .card {
     max-width: 20rem;
@@ -126,6 +127,7 @@
   }
   .search{
     margin-top: 3rem;
+    margin-bottom: 3rem;
     text-align: center;
   }
   .title{
