@@ -13,7 +13,7 @@
     <form [formGroup]="categoryForm"  (ngSubmit)="onSaveCategory()">
     <div class="subscribe">
         <p>CREATE CATEGORY</p>
-        <input placeholder="Name of the new category" class="subscribe-input" name="category" type="text" formControlName="title"required>
+        <input placeholder="Name of the new category" class="subscribe-input" name="category" type="text" formControlName="title" maxlength="12"required>
         <br>
         <div class="submit-btn">
             <button type="submit">CREATE</button>    

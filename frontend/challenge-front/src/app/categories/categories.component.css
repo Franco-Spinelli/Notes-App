@@ -17,6 +17,7 @@
     gap: .5em;
     display: grid;
     place-content: center;
+    overflow: hidden;
    }
    
    .card-button {
