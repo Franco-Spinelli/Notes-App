@@ -24,8 +24,8 @@ export class EditNoteComponent {
   constructor(private apiService:ApiServiceService,  private fb: FormBuilder){
     this.updateNote = this.fb.group({
       note_id: this.idNote,
-      title: new FormControl(''),
-      content: new FormControl(''),
+      title: new FormControl(null),
+      content: new FormControl(null),
      });
   }
   ngOnInit() {
@@ -57,6 +57,7 @@ export class EditNoteComponent {
     );
   }
   update(){
+    if(this.updateNote.value.title!=null && this.updateNote.value.content!=null && this.newCategory!=null){
     this.note.title = this.updateNote.value.title;
     this.note.content = this.updateNote.value.content;
     this.note.category = this.newCategory;
@@ -71,6 +72,9 @@ export class EditNoteComponent {
         console.error('Error changing status:', error);
       }
     );
+    }else{
+      alert("Complete all the form");
+    }
   }
 
   onCategoryChange(event: any) {
