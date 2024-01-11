@@ -8,6 +8,8 @@ When you choose to edit a note, you'll be directed to a separate page featuring 
 ### Categories
 Navigate to the "CATEGORIES" section to explore and manage your categories. Here, you can view all existing categories, add new ones, or delete unwanted categories. It's important to note that deleting a category also removes any associated notes.
 
+### Observations Please be aware that in the content section of a note, after entering 35 characters, some letters may become hidden. Therefore, the content is limited to 34 characters for optimal visibility.
+
 VERSION
 Angular CLI: 17.0.9
 Node: 18.18.0
